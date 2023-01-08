@@ -60,33 +60,19 @@ const Sidebar = () => {
                     <span>Employee</span>
                 </li>
                 </Link>
-                <p className="title">USEFUL</p>
+                <p className="title">Report</p>
                 <li>
-                <QueryStatsIcon className="icon"/>
-                    <span>stats</span>
+                <ProductionQuantityLimitsTwoToneIcon className="icon" />
+                    <span>Academic </span>
                 </li>
+                <Link to="/usersreport" style={{ textDecoration:"none"}}>
                 <li>
-                <CircleNotificationsIcon className="icon"/>
-                    <span>Notifications</span>
+                <ProductionQuantityLimitsTwoToneIcon className="icon" />
+                    <span>User </span>
                 </li>
-                <p className="title">SERVICE</p>
-                <li>
-                    <SettingsSystemDaydreamIcon className="icon"/>
-                    <span>System Health</span>
-                </li>
-                <li>
-                <PsychologyIcon className="icon"/>
-                    <span>Logs</span>
-                </li>
-                <li>
-                <SettingsApplicationsIcon className="icon"/>
-                    <span>Settings</span>
-                </li>
+                </Link>
+
                 <p className="title">USER</p>
-                <li>
-                <AccountCircleIcon className="icon"/>
-                    <span>Profile</span>
-                </li>
                 
                 <li>
                     
@@ -97,10 +83,6 @@ const Sidebar = () => {
                     
                 </li>
             </ul>
-        </div>
-        <div className="bottom">
-            <div className="colorOption"></div>
-            <div className="colorOption"></div>
         </div>
     </div>
   )

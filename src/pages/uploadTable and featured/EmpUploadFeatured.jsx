@@ -9,16 +9,35 @@ import axios from "axios";
 const EmpUploadFeatured = () => {
   const [employeData,setEmployeData]=useState([])
   const [percetFemale,setPercetFemale]=useState('')
-
+  const [orgData,setOrgData]=useState([]);
   const [numberOfWowen,setNumberOfWomen]=useState('')
+  const [numberOfMan,setNumberOfMan]=useState('')
   console.log("rez,...",employeData)
   let maleCounter=0
   let femaleCounter=0
-  useEffect(()=>{
-    async function fetchData(){
-      await axios.get('http://localhost:2345/empCollection/collection').then((response)=>{
-          setEmployeData(response.data.data);  
-           response.data.data.map((p)=>{
+
+  const getOrginizatonCollectionByUderId=async()=>{
+    try {
+      const token = await localStorage.getItem("access-token");
+          let headers;
+          if (token) {
+            headers = {
+              "Content-Type": "application/json",
+              token: `${token}`,
+            };
+          } else {
+            headers = {
+              "Content-Type": "application/json",
+            };
+          }
+          const res = await axios.get(`http://localhost:2345/organisation/organizationbyId`,
+           {
+            headers: headers,
+          });
+          const collection = await res.data;
+          setOrgData(collection.data.collections) 
+
+          collection.data.collections.map((p)=>{
             if(p.gender=="Male"){
               maleCounter=maleCounter+1
             }
@@ -30,17 +49,51 @@ const EmpUploadFeatured = () => {
             console.log("wommm",numberOfWowen)
             setNumberOfWomen(femaleCounter)
              setPercetFemale(percentageFemale)
+             setNumberOfMan(maleCounter)
            
             console.log("male female",maleCounter,femaleCounter)
            })
+
+    } catch (error) {
+      console.log("error response",error)
+    }
+     }
+    
+      useEffect(()=>{
+    getOrginizatonCollectionByUderId();
+      },[])
+
+
+
+
+
+  // useEffect(()=>{
+  //   async function fetchData(){
+  //     await axios.get('http://localhost:2345/empCollection/collection').then((response)=>{
+  //         setEmployeData(response.data.data);  
+  //          response.data.data.map((p)=>{
+  //           if(p.gender=="Male"){
+  //             maleCounter=maleCounter+1
+  //           }
+  //           else{
+  //             femaleCounter=femaleCounter+1
+  //           }
+  //           const total=maleCounter+femaleCounter
+  //           const percentageFemale=((femaleCounter*100)/total).toFixed(2)
+  //           console.log("wommm",numberOfWowen)
+  //           setNumberOfWomen(femaleCounter)
+  //            setPercetFemale(percentageFemale)
+           
+  //           console.log("male female",maleCounter,femaleCounter)
+  //          })
             
-          }     
-      ).cacth(err=>{
-      console.log(err)}
-      )
-      }
-      fetchData();
-  },[])
+  //         }     
+  //     ).cacth(err=>{
+  //     console.log(err)}
+  //     )
+  //     }
+  //     fetchData();
+  // },[])
   return (
     <div className="semifeatured">
         <div className="top">
@@ -54,30 +107,8 @@ const EmpUploadFeatured = () => {
         <p className="title">Total women registered</p>
         <p className="Total">{numberOfWowen}</p>
         <p className="desc">Total Number of man</p>
-        {percetFemale} 
-        <div className="summary">
-          <div className="empowered">
-            <div className="empoweredTitle">Student</div>
-            <div className="empoweredResult negative">
-            <KeyboardArrowDownIcon fontSize="small"/>
-              <div className="TotalResultt">15%</div>
-            </div>
-          </div>
-          <div className="empowered">
-            <div className="empoweredTitle">Last Week</div>
-            <div className="empoweredResult positive">
-            <KeyboardArrowUpIcon fontSize="small"/>
-              <div className="TotalResultt">16%</div>
-            </div>
-          </div>
-          <div className="empowered">
-            <div className="empoweredTitle">Last Month</div>
-            <div className="empoweredResult positive">
-            <KeyboardArrowUpIcon fontSize="small"/>
-              <div className="TotalResultt">40%</div>
-            </div>
-          </div>
-        </div>
+        <p className="Total"> {numberOfMan} </p>
+       
         </div>
     </div>
   )

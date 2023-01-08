@@ -9,9 +9,13 @@ import Login from "./pages/login/Login";
 import Routes from './routes/index';
 function App() {
   return (
+ 
     <BrowserRouter>
     <Routes/>
   </BrowserRouter>
+   
+
+  
 //     <div className="App">
 
 // <BrowserRouter>
@@ -25,6 +29,7 @@ function App() {
 //     </Switch>
 //   </BrowserRouter>
 //     </div>
+
   );
 }
 

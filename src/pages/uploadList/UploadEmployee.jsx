@@ -104,6 +104,11 @@ fetchData();
             setSalaryErr('')
             setGenderErr('')
             await dispatch(collectionAction({empName,position,age,salary,gender}))
+            setEmpName("")
+            setPosition("")
+            setAge("")
+            setSalary("")
+            setGender("")
         }
         if(addEmployee.error){
             setOpen(true)

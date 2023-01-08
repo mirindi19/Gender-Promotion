@@ -84,6 +84,11 @@ const UploadAcademic = () => {
                     setSubjectErr('')
                     setGenderErr('')
                     await dispatch(educationCollectionAction({studentName,level,age,subject,gender}))
+                    setStudentName("")
+                    setAge("")
+                    setLevel("")
+                    setSubject("")
+                    setGender("")
                 }
                 if(addstudent.error){
                     setOpen(true)
@@ -132,7 +137,7 @@ const UploadAcademic = () => {
       '& > :not(style)': {
         m: 1,
         width: 1828,
-        height: 568,
+        height: 668,
       },
     }}
   >

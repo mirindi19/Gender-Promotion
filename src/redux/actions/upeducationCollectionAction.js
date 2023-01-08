@@ -1,10 +1,10 @@
 import axios from "axios";
 import {
-    REGISTER_EDUCTIONCOLLECTION_REQUEST,
-    REGISTER_EDUCTIONCOLLECTION_SUCCESS,
-    REGISTER_EDUCTIONCOLLECTION_FAILURE,
-  } from "../types/educationCollectionTypes";
-export const educationCollectionAction = (data, history) => async (dispatch) => {
+    UPREGISTER_EDUCTIONCOLLECTION_REQUEST,
+    UPREGISTER_EDUCTIONCOLLECTION_SUCCESS,
+    UPREGISTER_EDUCTIONCOLLECTION_FAILURE,
+  } from "../types/upeducationCollectionTypes";
+export const upeducationCollectionAction = (data, history) => async (dispatch) => {
   const {studentName}=data 
   const {age}=data
   const {gender}=data
@@ -41,7 +41,7 @@ console.log("our data",data)
     );
     const education = await res.data;
     dispatch(educationCollectionSuccess({ data: education.data }));
-    alert("Student successfully");
+    // alert("Student successfully");
     window.location.reload()
    
   } catch (err) {
@@ -57,19 +57,19 @@ console.log("our data",data)
 
 export const educationCollectionRequest = () => {
   return {
-    type: REGISTER_EDUCTIONCOLLECTION_REQUEST,
+    type: UPREGISTER_EDUCTIONCOLLECTION_REQUEST,
   };
 };
 
 export const educationCollectionSuccess = (education) => {
   return {
-    type: REGISTER_EDUCTIONCOLLECTION_SUCCESS,
+    type: UPREGISTER_EDUCTIONCOLLECTION_SUCCESS,
     payload: education,
   };
 };
 export const educationCollectionFailure = (error) => {
   return {
-    type: REGISTER_EDUCTIONCOLLECTION_FAILURE,
+    type: UPREGISTER_EDUCTIONCOLLECTION_FAILURE,
     payload: error,
   };
 };

@@ -1,10 +1,10 @@
 import axios from "axios";
 import {
-    COLLECTION_REQUEST,
-    COLLECTION_SUCCESS,
-    COLLECTION_FAILURE,
-  } from "../types/collectionTypes";
-export const collectionAction = (data) => async (dispatch) => {
+    UPCOLLECTION_REQUEST,
+    UPCOLLECTION_SUCCESS,
+    UPCOLLECTION_FAILURE,
+  } from "../types/upCollectionTypes";
+export const upCollectionAction = (data) => async (dispatch) => {
  
   const {empName}=data 
   const {position}=data
@@ -50,7 +50,7 @@ export const collectionAction = (data) => async (dispatch) => {
     });
     const collection = await res.data;
     dispatch(collectionSuccess( collection.message));
-    alert("Enployee created successfully");
+    // alert("Enployee created successfully");
     window.location.reload()
    
   } catch (err) {
@@ -66,19 +66,19 @@ export const collectionAction = (data) => async (dispatch) => {
 
 export const collectionRequest = () => {
   return {
-    type: COLLECTION_REQUEST,
+    type: UPCOLLECTION_REQUEST,
   };
 };
 
 export const collectionSuccess = (collection) => {
   return {
-    type: COLLECTION_SUCCESS,
+    type: UPCOLLECTION_SUCCESS,
     payload: collection,
   };
 };
 export const collectionFailure = (error) => {
   return {
-    type: COLLECTION_FAILURE,
+    type: UPCOLLECTION_FAILURE,
     payload: error,
   };
 };

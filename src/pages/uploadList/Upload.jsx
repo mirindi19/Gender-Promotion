@@ -42,10 +42,10 @@ const Upload = () => {
       <p>By uploading the list work of the company your helping us to <br></br> to empower women who work in your company and those woman who still need to be <br></br>empower.</p>
       <Stack spacing={2} direction="row" className='button-upload'>
       <Link to="/uploadAcademic" style={{ textDecoration:"none"}}>
-      <Button variant="contained">upload Academic</Button>
+      <Button variant="contained" style={{background:'#F9842C'}}>Academic</Button>
       </Link>
       <Link to="/uploadEmployee" style={{ textDecoration:"none"}}>
-      <Button variant="contained">uploadEmployee</Button>
+      <Button variant="contained" style={{background:'#F9842C'}}>Capacity</Button>
       </Link>
     </Stack>
    </div>

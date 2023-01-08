@@ -17,7 +17,7 @@ import ButtonGroup from "@mui/material/Button"
 import { useHistory,Link} from 'react-router-dom';
 import IMAGES from "../../Assets/images";
 
-const pages = ['Home', 'About','Contact', 'Login'];
+const pages = ['Home','Login'];
 const settings = [ 'Logout'];
 const Topbar= () => {
   const token =  localStorage.getItem("access-token");
@@ -44,6 +44,9 @@ const Topbar= () => {
     else if(event==="Change PIN"){
     
       history.push("/dashboard/changepin",{ push: true })
+    }
+    else if(event=="Home"){
+      history.push("/",{ push: true })
     }
     else{
       setAnchorElNav(null);
@@ -91,7 +94,7 @@ const Topbar= () => {
           </Typography>
          
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none'} }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -144,15 +147,17 @@ const Topbar= () => {
             }}
           >
           <Link to="/dashboard" className="linkStyle">
-          MIGEPROF k
+          MIGEPROF 
             </Link>
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' , marginRight:100, color:'gray'} }}>
+
+          // button style
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' , marginRight:-100, color:'gray'} }}>
             {pages.map((page) => (
               <Button
                 key={page}
                 onClick={()=>handleMenu(page)}
-                sx={{ my: 2, color: 'gray', display: 'block' }}
+                sx={{ my: 2, color: 'gray', display: 'block'}}
               >
              {token && page==="Login"?null:page}
               </Button>
@@ -161,7 +166,7 @@ const Topbar= () => {
 { !token?null:<Box sx={{ flexGrow: 0 }}>
 <Tooltip title="Open settings">
   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-    <Avatar alt="bemy Sharp" src="/static/images/avatar/2.jpg" />
+    <Avatar alt="Lemy Sharp" src="/static/images/avatar/2.jpg" />
   </IconButton>
 </Tooltip>
 <Menu

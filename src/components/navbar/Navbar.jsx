@@ -6,41 +6,27 @@ import FullscreenExitIcon from '@mui/icons-material/FullscreenExit';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import ListIcon from '@mui/icons-material/List';
+import { Button } from '@mui/material';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import { useHistory } from 'react-router-dom';
 const Navbar = () => {
+  const history=useHistory()
+  const handleLogout=()=>{
+    localStorage.removeItem('access-token')
+    history.push("/",{push:true})
+}
   return (
     <div className='navbar'>
      <div className="wrapper">
-      <div className="search">
-        <input type="text" placeholder='Search...' />
-        <SearchIcon/>
-      </div>
+       <div className="search">
+     
+   </div>
       <div className="items">
         <div className="item">
-        <LanguageIcon className='icon'/>
-        English
-        </div>
-        <div className="item">
-        <DarkModeIcon className='icon'/>
-        </div>
-        <div className="item">
-          <FullscreenExitIcon className='icon'/>
-        </div>
-        <div className="item">
-          <NotificationsNoneIcon className='icon'/>
-          <div className="counter">1</div>
-        </div>
-        <div className="item">
-          <ChatBubbleOutlineIcon className='icon'/>
-          <div className="counter">2</div>
-        </div>
-        <div className="item">
-          <ListIcon className='icon'/>
-        </div>
-        <div className="item">
-          <img src=""
-          alt=""
-          className='avatar'
-          />
+        <Button onClick={handleLogout}>
+        <ExitToAppIcon className="icon"/>
+        <span >Logout</span>
+        </Button>
         </div>
       </div>
      </div>
