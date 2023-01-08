@@ -65,10 +65,10 @@ const Sidebar = () => {
                 <ProductionQuantityLimitsTwoToneIcon className="icon" />
                     <span>Academic </span>
                 </li>
-                <Link to="/usersreport" style={{ textDecoration:"none"}}>
+                <Link to="/Category" style={{ textDecoration:"none"}}>
                 <li>
                 <ProductionQuantityLimitsTwoToneIcon className="icon" />
-                    <span>User </span>
+                    <span>Women Category</span>
                 </li>
                 </Link>
 

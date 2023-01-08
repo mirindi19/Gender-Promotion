@@ -1,7 +1,7 @@
-import UserReport from "../report/UserReport"
 import React from "./reportuser.scss"
 import Sidebar from "../../components/sidebar/Sidebar"
 import Navbar from "../../components/navbar/Navbar"
+import TotalPercWomen from "../percForm/TotalPercWomen"
 
 const Reportuser = () => {
   return (
@@ -10,7 +10,7 @@ const Reportuser = () => {
         
         <div className="listContainerreport">
         <Navbar/>
-            <UserReport/>
+            <TotalPercWomen/>
         </div>
     </div>
   )

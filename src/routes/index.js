@@ -12,7 +12,8 @@ import Collectiondatatable from '../components/datatable/Collectiondatatable';
 import UploadAcademic from '../pages/uploadList/UploadAcademic';
 import UploadEmployee from '../pages/uploadList/UploadEmployee';
 import EducationCollectionDatatable from"../components/datatable/EducationCollectionDatatable";
-import Reportuser from '../pages/list/Reportuser'
+// import Reportuser from '../pages/list/Reportuser'
+import TotalPercWomen from "../pages/percForm/TotalPercWomen"
 // import DashboardRoute from './Dashboard.routes';
 
 
@@ -53,8 +54,8 @@ export default class index extends Component {
  <Route index component={UploadEmployee }/>
 </Route>
 
-<Route path="/usersreport">
- <Route index component={Reportuser}/>
+<Route path="/Category">
+ <Route index component={TotalPercWomen}/>
 </Route>
 
 
